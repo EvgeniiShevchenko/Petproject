@@ -87,6 +87,5 @@ app.get("/bay", function (req, res) {
     return res.send(console.log("bay"));
 });
 
-
-var port = 3001;
+var port = process.env.PORT || 3001;
 app.listen(port, console.log("Server runing on " + port + " port!"));
