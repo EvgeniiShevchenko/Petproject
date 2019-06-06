@@ -13,6 +13,9 @@
     "watch": "babel src --out-file server.js  --presets es2015 -w",
     "sinc": "concurrently \"npm run watch\" \"npm run server\" \"npm run client\""
   },
+  "engines": {
+    "node": "10.13.0"
+  },
   "author": "Evgenii Shevchenko",
   "license": "ISC",
   "dependencies": {
