@@ -21,6 +21,7 @@ Button
 import { CSSTransitionGroup } from 'react-transition-group';
 
 
+
 class NavBar extends React.Component {
 render(){
     const searchbutton = () => {
