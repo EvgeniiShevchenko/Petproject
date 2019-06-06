@@ -17,6 +17,7 @@ var Mongo = require("mongodb-stitch-server-sdk");
 
 var express = require("express");
 
+var path = require('path');
 // import {Stitch, AnonymousCredential, RemoteMongoClient} from "mongodb-stitch-server-sdk";
 
 var appId = "app-gzhil";
@@ -86,6 +87,13 @@ app.post("/api/update/:id", function (req, res) {
 app.get("/bay", function (req, res) {
     return res.send(console.log("bay"));
 });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(client / build));
+    app.get("*", function (req, res) {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 var port = process.env.PORT || 3001;
 app.listen(port, console.log("Server runing on " + port + " port!"));
