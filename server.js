@@ -33,7 +33,7 @@ var app = express();
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 
-app.get('/api/start', function (req, res) {
+app.get('/api/', function (req, res) {
     var getdata = async function getdata() {
         var countlogin = await collection.find({}).asArray();
         console.log(countlogin);
@@ -102,12 +102,12 @@ app.get("/bay", function (req, res) {
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, "client", "build")));
-    app.get("/*", function (req, res) {
+    app.get("*", function (req, res) {
         res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
     });
 }
 
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
-    return console.log("Mixing it up on port " + PORT);
+    return console.log("Mixing it up on port " + port);
 });
