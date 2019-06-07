@@ -4,7 +4,7 @@ import promiseMiddelware  from "redux-promise";
 import rootReduser from "./redusers/";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const middleware = [thunk]//promiseMiddelware,
+const middleware = [thunk, promiseMiddelware]//promiseMiddelware,
 
 // const store = createStore(rootReduser,  compose(applyMiddleware(...middleware),
 // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));

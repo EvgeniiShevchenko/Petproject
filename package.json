@@ -12,7 +12,7 @@
     "build": "babel src --out-file server.js  --presets es2015",
     "watch": "babel src --out-file server.js  --presets es2015 -w",
     "sinc": "concurrently \"npm run watch\" \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "engines": {
     "node": "10.13.0"
