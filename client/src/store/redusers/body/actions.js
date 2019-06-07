@@ -8,7 +8,7 @@ export const UPDATE_ANIME = "UPDATE_ANIME";
 
 export const postanime = () => {
     return (dispatch) => {
-        fetch('/start/')
+        fetch('/api/start')
             .then(res => res.json())
             .then(posts => {
                 console.log(JSON.stringify(posts));
