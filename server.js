@@ -107,5 +107,5 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 5000;
 app.listen(port, console.log("Server runing on " + port + " port!"));
