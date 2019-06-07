@@ -8,7 +8,7 @@ export const UPDATE_ANIME = "UPDATE_ANIME";
 
 export const postanime = () => {
     return (dispatch) => {
-        fetch('https://serene-cliffs-20808.herokuapp.com/api/')
+        fetch('/')
             .then(res => res.json())
             .then(posts => {
                 console.log(JSON.stringify(posts));

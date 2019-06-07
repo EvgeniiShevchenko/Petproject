@@ -33,7 +33,7 @@ var app = express();
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 
-app.get("https://serene-cliffs-20808.herokuapp.com/api/", function (req, res) {
+app.get("/", function (req, res) {
     var getdata = async function getdata() {
         var countlogin = await collection.find({}).asArray();
         console.log(countlogin);
