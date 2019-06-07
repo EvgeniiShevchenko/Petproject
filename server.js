@@ -108,4 +108,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var port = process.env.PORT || 5000;
-app.listen(port, console.log("Server runing on " + port + " port!"));
+app.listen(port, function () {
+    return console.log("Mixing it up on port " + PORT);
+});
