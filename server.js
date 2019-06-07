@@ -33,7 +33,7 @@ var app = express();
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 
-app.get('/api/', function (req, res) {
+app.get('/api', function (req, res) {
     var getdata = async function getdata() {
         var countlogin = await collection.find({}).asArray();
         console.log(countlogin);
