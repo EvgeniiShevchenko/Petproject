@@ -25,7 +25,7 @@ export const postanime = () => {
 
 export const createanime = (data) => {
     return (dispatch) => {
-        fetch('/api/create-anime', {
+        fetch('https://serene-cliffs-20808.herokuapp.com/api/create-anime', {
             method: 'POST',
             body: JSON.stringify(data),
             headers:{
