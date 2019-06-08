@@ -88,9 +88,9 @@ app.delete("/api/delete/:id", function (req, res) {
         var fff = typeof id === "undefined" ? "undefined" : _typeof(id);
         // const employeeName = req.body;
         console.log(id);
-        var deleteanime = await collection.deleteOne({ _id: id });
-        res.send(id + " " + JSON.stringify(deleteanime) + " " + fff);
-        console.log(deleteanime);
+        // const deleteanime = await collection.deleteOne({_id: id});
+        res.send(id + "  " + fff);
+        // console.log(deleteanime);
     };
     getdata();
 });
