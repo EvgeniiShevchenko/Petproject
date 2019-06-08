@@ -114,6 +114,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 var port = process.env.PORT || 5000;
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
     return console.log("Mixing it up on port " + port);
 });
