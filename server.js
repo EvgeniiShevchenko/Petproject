@@ -10,6 +10,10 @@ var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
 var _os = require("os");
 
+var _morgan = require("morgan");
+
+var _morgan2 = _interopRequireDefault(_morgan);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import count from "../mongo_config";
@@ -29,9 +33,17 @@ var collection = db.collection("Anime");
 // const db = require("./mongo_config");
 // import db from "./mongo_config";
 var app = express();
+var dev = app.get('env') !== 'production';
+
+if (!dev) {
+    app.disable('x-powered-by');
+    app.use(compression());
+    app.use((0, _morgan2.default)('common'));
+}
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
+app.use((0, _morgan2.default)('dev'));
 
 app.get('/api', function (req, res) {
     var getdata = async function getdata() {
@@ -104,8 +116,8 @@ app.get("/bay", function (req, res) {
 });
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, "client", "build")));
-    app.get("/*", function (req, res) {
+    app.use(express.static(path.resolve(__dirname, "client", "build")));
+    app.get("*", function (req, res) {
         res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
     });
 }
