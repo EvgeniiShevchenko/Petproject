@@ -49,21 +49,7 @@ app.get('/api', function (req, res) {
     var getdata = async function getdata() {
         var countlogin = await collection.find({}).asArray();
         console.log(countlogin);
-        res.send({
-            "name": "react-express-example",
-            "version": "1.0.0",
-            "description": "",
-            "main": "index.js",
-            "scripts": {
-                "start": "node index.js"
-            },
-            "keywords": [],
-            "author": "",
-            "license": "ISC",
-            "dependencies": {
-                "express": "^4.16.3"
-            }
-        });
+        res.send(countlogin);
         console.log("hello");
     };
     getdata();
