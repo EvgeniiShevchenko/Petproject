@@ -37,17 +37,17 @@ var collection = db.collection("Anime");
 // const db = require("./mongo_config");
 // import db from "./mongo_config";
 var app = express();
-var dev = app.get('env') !== 'production';
+// const dev = app.get('env') !== 'production';
 
-if (!dev) {
-    app.disable('x-powered-by');
-    app.use(compression());
-    app.use((0, _morgan2.default)('common'));
-}
+// if(!dev){
+//     app.disable('x-powered-by');
+//     app.use(compression());
+//     app.use(morgan('common'));
+// }
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
-app.use((0, _cors2.default)());
+// app.use(cors());
 app.use((0, _morgan2.default)('dev'));
 
 app.get('/api', function (req, res) {
@@ -107,7 +107,7 @@ app.get("/bay", function (req, res) {
 });
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(__dirname, "client", "build")));
+    app.use(express.static(path.join(__dirname, "client", "build")));
     app.get("*", function (req, res) {
         res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
     });
