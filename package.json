@@ -28,6 +28,7 @@
     "http-proxy-middleware": "^0.19.1",
     "isomorphic-fetch": "^2.2.1",
     "mongodb-stitch-browser-sdk": "^4.4.0",
+    "mongodb-stitch-core-sdk": "^4.4.0",
     "mongodb-stitch-server-sdk": "^4.4.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1"
