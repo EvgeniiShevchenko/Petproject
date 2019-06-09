@@ -8,10 +8,10 @@ export const UPDATE_ANIME = "UPDATE_ANIME";
 
 export const postanime = () => {
     return (dispatch) => {
-        fetch('/api', { method: 'GET' })
+        fetch('/api/anime', { method: 'GET' })
             .then(res => res.json())
             .then(posts => {
-                console.log(JSON.stringify(posts));
+                console.log(posts);
                 dispatch({
                     type: FETCH_POSTS,
                     payload: posts
@@ -25,7 +25,7 @@ export const postanime = () => {
 
 export const createanime = (data) => {
     return (dispatch) => {
-        fetch('/api/create-anime', {
+        fetch('/api/anime/add-anime', {
             method: 'POST',
             body: JSON.stringify(data),
             headers:{
@@ -48,7 +48,7 @@ export const createanime = (data) => {
 
 export const deleteanime = (Idtitle) => {
     return async dispatch => {
-        const deleteitem = await fetch(`/api/delete/${Idtitle}`, {
+        const deleteitem = await fetch(`/api/anime/delete/${Idtitle}`, {
             method: 'DELETE',
         })
         if(!deleteitem.ok) {
@@ -67,7 +67,7 @@ export const deleteanime = (Idtitle) => {
 
 export const updateanime = (Idtitle) => {
     return async dispatch => {
-        const updateitem = await fetch(`/api/update/${Idtitle}`, {
+        const updateitem = await fetch(`/api/anime/update/${Idtitle}`, {
             method: 'POST',
         })
         if(!updateitem.ok) {
