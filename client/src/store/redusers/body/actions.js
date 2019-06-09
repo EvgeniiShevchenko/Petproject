@@ -8,8 +8,10 @@ export const UPDATE_ANIME = "UPDATE_ANIME";
 
 export const postanime = () => {
     return (dispatch) => {
-        fetch('/api/anime', { method: 'GET' })
+        fetch("/api/anime", {method: "GET"})
             .then(res => res.json())
+            // .then(res => res.text())          // convert to plain text
+            // .then(text => console.log(text))  // then log it out
             .then(posts => {
                 console.log(posts);
                 dispatch({
@@ -17,9 +19,7 @@ export const postanime = () => {
                     payload: posts
                 });
             })
-            .catch(error => {
-                alert("ERROR!")
-            })
+            .catch(error => console.error('Error:', error));
     }
 };
 
@@ -40,9 +40,7 @@ export const createanime = (data) => {
                     payload: {...data, _id: posts.insertedId}
                 });
             })
-            .catch(error => {
-                alert("ERROR POST!", error)
-            })
+            .catch(error => console.error('Error:', error));
     }
 };
 

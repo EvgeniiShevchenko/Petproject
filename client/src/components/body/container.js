@@ -13,7 +13,7 @@ const PutActionsToProps = {
     actionpost: actionpost.postanime,
     createanime: actionpost.createanime,
     deleteanime: actionpost.deleteanime,
-    updateanime:actionpost. updateanime
+    updateanime: actionpost.updateanime
 };
 
 export default connect(PutToProps, PutActionsToProps)(Body);

@@ -50,22 +50,11 @@ app.use(_bodyParser2.default.urlencoded({ extended: true }));
 // app.use(cors());
 app.use((0, _morgan2.default)('dev'));
 
-app.get('/api/anime', function (req, res) {
+app.get("/api/anime", function (req, res) {
     var getdata = async function getdata() {
-        // const countlogin = await collection.find({}).asArray();
-        // console.log(countlogin);
-        res.send([{
-
-            "Name": "Созерцая колготки",
-            "Img": "https://smotretanime.ru/posters/20434.27713357813.jpg",
-            "Year": 2019,
-            "Status": "онгоинг",
-            "NumOfSeries": 12,
-            "Rating": null,
-            "Studio": "Yokohama Animation Lab",
-            "Director": "Огава Юки",
-            "Description": "Дождливое апрельское утро. Вишневые цветы поражены дождем и плавают в луже. Старшеклассники входят в школьные ворота, неся зонтики разных цветов. «Доброе утро, Рен», - поприветствовала Юа Рен, надев мокрые колготки перед шкафом с обувью. Когда Рен угрюмо взглянула на нее, Хоми, залитая водой, присоединилась к ним. Девушки обсуждают новый семестр. Эта история незаменимой школьной жизни трех девушек."
-        }]);
+        var countlogin = await collection.find({}).asArray();
+        console.log(countlogin);
+        res.send(countlogin);
         console.log("hello");
     };
     getdata();
