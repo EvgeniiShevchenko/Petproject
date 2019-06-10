@@ -33,6 +33,10 @@ var client = Mongo.Stitch.initializeDefaultAppClient(appId);
 var mongodb = client.getServiceClient(Mongo.RemoteMongoClient.factory, "mongodb-atlas");
 var db = mongodb.db("firstApp");
 var collection = db.collection("Anime");
+console.log("logging in anonymously");
+client.auth.loginWithCredential(new Mongo.AnonymousCredential()).then(function (user) {
+    console.log("logged in anonymously as user " + user.id);
+});
 
 // const db = require("./mongo_config");
 // import db from "./mongo_config";
