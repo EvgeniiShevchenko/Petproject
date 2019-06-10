@@ -10,7 +10,7 @@ const Animereduser = (state = defaultState, action) => {
             // alert(JSON.stringify(action.payload));
             return {...state, post: [action.payload, ...state.post] };
         case "DALETE_ANIME":
-            alert("hello")
+            // alert("hello")
             // alert(JSON.stringify(action.payload));
             // const animefilter = state.post.filter(filter => {console.log(typeof(filter._id)); console.log(typeof(action.payload)); return filter._id !== action.payload});
             // return animefilter

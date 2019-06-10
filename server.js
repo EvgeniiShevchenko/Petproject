@@ -77,19 +77,19 @@ app.post("/api/anime/add-anime", function (req, res) {
 
 app.delete("/api/anime/delete/:id", function (req, res) {
     var getdata = async function getdata() {
-        // const id = new ObjectId(req.params.id);
-        var id = new req.params.id();
+        var id = new _bson.ObjectId(req.params.id);
+        // const id = new req.params.id;
         var fff = typeof id === "undefined" ? "undefined" : _typeof(id);
         // const employeeName = req.body;
         console.log(id);
-        // const deleteanime = await collection.deleteOne({_id: id});
+        var deleteanime = await collection.deleteOne({ _id: id });
         res.send(id + "  " + fff);
-        // console.log(deleteanime);
+        console.log(deleteanime);
     };
     getdata();
 });
 
-app.post("/api/anime/update/:id", function (req, res) {
+app.put("/api/anime/update/:id", function (req, res) {
     var getdata = async function getdata() {
         var id = new _bson.ObjectId(req.params.id);
         // const animetitle = req.body;

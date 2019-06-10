@@ -66,7 +66,7 @@ export const deleteanime = (Idtitle) => {
 export const updateanime = (Idtitle) => {
     return async dispatch => {
         const updateitem = await fetch(`/api/anime/update/${Idtitle}`, {
-            method: 'POST',
+            method: 'PUT',
         })
         if(!updateitem.ok) {
             throw new Error(`Could not fetch /api/update/${Idtitle}, received ${updateitem.status}` )
