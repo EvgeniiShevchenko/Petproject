@@ -40,10 +40,9 @@ app.use(_bodyParser["default"].urlencoded({
 })); // app.use(cors());
 
 app.use((0, _morgan["default"])('dev'));
-app.use("/api/anime", anime);
-app.get('/', function (req, res) {
-  res.send('Root route of server');
-});
+app.use("/api/anime", anime); // app.get('/', (req, res) => {
+//     res.send('Root route of server');
+//   });
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express["static"](path.join(__dirname, "client", "build")));
